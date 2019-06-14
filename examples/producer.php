@@ -34,7 +34,7 @@ $data = array($jose, $maria);
 $io = new AvroStringIO();
 // Create a datum writer object
 $writers_schema = AvroSchema::parse($writers_schema_json);
-var_dump($writers_schema); die();
+
 $writer = new AvroIODatumWriter($writers_schema);
 $data_writer = new AvroDataIOWriter($io, $writer, $writers_schema);
    
