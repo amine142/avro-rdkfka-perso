@@ -38,7 +38,7 @@ while (true) {
             // Load the string data string
             $read_io = new AvroStringIO($msg->payload);
             $data_reader = new AvroDataIOReader($read_io, new AvroIODatumReader());
-            echo "from binary string:\n";
+            echo "$msg->offset from binary string:\n";
             foreach ($data_reader->data() as $datum)
                 echo var_export($datum, true) . "\n";
         }
