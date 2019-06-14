@@ -1,0 +1,58 @@
+{
+	"name": "wikimedia/avro",
+	"description": "A library for using Apache Avro with PHP.",
+	"keywords": ["serialization"],
+	"homepage": "https://avro.apache.org/",
+	"license": "Apache-2.0",
+	"authors": [
+		{
+			"name": "Michael Glaesemann",
+			"email": "grzm@seespotcode.net"
+		},
+		{
+			"name": "Andy Wick",
+			"email": "awick@purple.org"
+		},
+		{
+			"name": "Saleem Shafi",
+			"email": "saleemshafi@gmail.com"
+		},
+		{
+			"name": "A B",
+			"email": "abawany@x.com"
+		},
+		{
+			"name": "Doug Cutting",
+			"email": "cutting@apache.org"
+		},
+		{
+			"name": "Tom White",
+			"email": "tom@cloudera.com"
+		}
+	],
+	"require": {
+		"php": ">=5.5.9"
+	},
+	"require-dev": {
+		"jakub-onderka/php-parallel-lint": "1.0.0",
+		"jakub-onderka/php-console-highlighter": "0.3.2",
+		"mediawiki/minus-x": "0.3.1",
+		"phpunit/phpunit": "4.8.36"
+	},
+	"suggest": {
+		"ext-gmp": "Large integer support for 32-bit platforms."
+	},
+	"autoload": {
+		"classmap": ["lib/"]
+	},
+	"scripts": {
+		"test": [
+			"parallel-lint . --exclude vendor",
+			"phpunit test/AllTests.php",
+			"minus-x check ."
+		],
+		"fix": [
+			"minus-x fix ."
+		]
+	}
+}
