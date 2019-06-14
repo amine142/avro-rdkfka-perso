@@ -44,7 +44,7 @@ foreach ($data as $datum)
 $data_writer->close();
 
 $binary_string = $io->string();
-var_dump($binary_string);die();
+
 $rk = new RdKafka\Producer();
 $rk->setLogLevel(LOG_DEBUG);
 $rk->addBrokers("127.0.0.1");
