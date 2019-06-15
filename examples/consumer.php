@@ -17,6 +17,16 @@
  * See the License for the specific language governing permissions and
  * limitations under the License.
  */
+
+/**
+ *      
+
+    High-level consumer
+
+    This example shows how to use the high level consumer.
+
+    Example #1 High-level consumer example
+ */
 require_once('../lib/avro.php');
 
 $rk = new RdKafka\Consumer();
@@ -26,9 +36,10 @@ $rk->addBrokers("127.0.0.1");
 $topic = $rk->newTopic("test_avro");
 
 $topic->consumeStart(0, RD_KAFKA_OFFSET_BEGINNING);
+$metadatas = $rk->getMetaData(false, $topic, -1);
+echo $metadatas->getOrigBrokerId() .' '. $metadatas->getOrigBrokerName().PHP_EOL;
 
 while (true) {
-
     $msg = $topic->consume(0, 1000);
     if ($msg) {
         if ($msg->err) {
